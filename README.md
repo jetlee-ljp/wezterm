@@ -114,10 +114,7 @@ wezterm/
 ├── backdrops/           # 背景图片目录
 ├── KEYBINDINGS.md       # 快捷键文档
 ├── README.md            # 项目说明
-├── .editorconfig        # 编辑器统一配置
-├── .stylua.toml         # Lua 格式化规则
-├── .luarc.json          # Lua LSP 配置
-├── selene.toml          # Lua 代码检查规则
+├── LICENSE              # 许可证
 └── .gitignore           # Git 忽略规则
 ```
 
@@ -228,32 +225,6 @@ color_scheme = 'Catppuccin Mocha',  -- 或其他主题
 
 - Windows/Linux: `mod.SUPER` = `ALT`
 - macOS: `mod.SUPER` = `SUPER` (Cmd)
-
-## 开发
-
-本配置包含开发工具配置（可选）：
-
-**`.stylua.toml`** - Lua 代码格式化规则
-
-- 120 字符列宽
-- 2 空格缩进
-- 单引号优先
-
-**`selene.toml`** - Lua 代码检查规则
-
-- 忽略 `wezterm` 和 `vim` 全局变量
-- 未定义变量警告
-
-```bash
-# 安装并使用
-cargo install stylua selene
-
-# 格式化代码
-stylua .
-
-# 检查代码
-selene .
-```
 
 ## 致谢
 

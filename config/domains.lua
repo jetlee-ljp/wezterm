@@ -8,6 +8,7 @@ return {
           name = 'OECT',
           remote_address = '192.168.5.5',
           username = 'root',
+          multiplexing = 'None', -- 禁用 multiplexer，服务器无需安装 wezterm
        },
     },
 

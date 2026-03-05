@@ -7,6 +7,7 @@ local options = {
 
 if platform.is_win then
    options.default_prog = { 'powershell' }
+   options.launch_menu = {} -- 清空启动菜单
 elseif platform.is_mac then
    options.default_prog = { '/opt/homebrew/bin/fish', '-l' }
    options.launch_menu = {

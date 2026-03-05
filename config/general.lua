@@ -8,6 +8,7 @@ return {
    scrollback_lines = 5000,
 
    audible_bell = "Disabled",
+   warn_about_missing_glyphs = false, -- 禁用字形缺失警告
 
    hyperlink_rules = {
       -- Matches: a URL in parens: (URL)
