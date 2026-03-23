@@ -58,9 +58,10 @@ git clone <your-repo> ~/.config/wezterm
 
 - **PowerShell** - Windows 默认
 - **Git Bash** - 推荐用于包管理工具（npm/pip/opencode 等）
+- **Anaconda PowerShell** - 已激活 conda base 环境的 PowerShell，适合 Python 开发
 - **CMD** - 传统命令提示符
 
-> 提示：某些工具（如 opencode）在 Git Bash 中更新更稳定
+> 提示：某些工具（如 opencode）在 Git Bash 中更新更稳定。Anaconda PowerShell 会自动激活 conda base 环境。
 
 **修改 WSL 配置**（如果使用 WSL）
 
@@ -199,6 +200,25 @@ default_gui_startup_args = { 'connect', 'WSL:Ubuntu' },
 - `Alt+Ctrl+/` - 打开选择器（模糊搜索）
 - `Alt+,` / `Alt+.` - 顺序切换
 
+### Python 开发工作流
+
+**使用 Anaconda PowerShell**：
+
+- 按 `F3` → 选择 "Anaconda PowerShell"
+- 自动激活 conda base 环境，无需手动执行 `conda activate`
+- 支持 conda 包管理和虚拟环境操作
+
+**快速环境切换**：
+
+1. 新建标签页 → 按 `F3` → 选择 "Anaconda PowerShell"
+2. 使用 conda 命令创建/切换环境：`conda create -n myenv python=3.11`
+3. 激活环境：`conda activate myenv`
+
+**多环境并行**：
+
+- 每个标签页可以运行不同的 conda 环境
+- 使用 `Alt+\` 垂直分割，左侧运行开发服务器，右侧运行测试
+
 ### 多任务工作流
 
 **场景 1：开发 + 监控**
@@ -242,6 +262,24 @@ color_scheme = 'Catppuccin Mocha',  -- 或其他主题
 
 - Windows/Linux: `mod.SUPER` = `ALT`
 - macOS: `mod.SUPER` = `SUPER` (Cmd)
+
+### 修改 Shell 配置
+
+编辑 `config/launch.lua` 调整启动菜单：
+
+```lua
+-- Windows 平台配置示例
+if platform.is_win then
+   options.launch_menu = {
+      { label = 'PowerShell', args = { 'powershell' } },
+      { label = 'Git Bash', args = { 'C:\\Program Files\\Git\\bin\\bash.exe', '-l' } },
+      { label = 'Anaconda PowerShell', args = { 'powershell', '-ExecutionPolicy', 'ByPass', '-NoExit', '-Command', "& 'C:\\ProgramData\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'C:\\ProgramData\\miniconda3'" } },
+      { label = 'CMD', args = { 'cmd' } },
+   }
+end
+```
+
+> 提示：如果 Anaconda/Miniconda 安装在其他路径，修改 `C:\\ProgramData\\miniconda3` 为你的实际安装路径。
 
 ## 致谢
 
