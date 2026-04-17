@@ -44,7 +44,7 @@ local keys = {
              if id == 'proxy-win' then
                 pane:send_text('$env:http_proxy="http://127.0.0.1:2080"; $env:https_proxy="http://127.0.0.1:2080"\r')
              elseif id == 'proxy-linux' then
-                pane:send_text('export http_proxy=http://127.0.0.1:2080; export https_proxy=http://127.0.0.1:2080\r')
+                pane:send_text('export HTTP_PROXY=http://127.0.0.1:2080; export HTTPS_PROXY=http://127.0.0.1:2080\r')
              elseif id == 'agent' then
                 pane:send_text('claude update; npm upgrade -g opencode-ai; npm upgrade -g @openai/codex; npm upgrade -g @google/gemini-cli\r')
              end
