@@ -22,7 +22,7 @@ return {
          source = { Color = colors.background },
          height = '100%',
          width = '100%',
-         opacity = 0.96,
+         opacity = 0.999,
       },
    },
 
@@ -40,8 +40,8 @@ return {
    -- window
    window_decorations = "INTEGRATED_BUTTONS | RESIZE",
    window_padding = {
-      left = 0,
-      right = 0,
+      left = 5,
+      right = 5,
       top = 0,
       bottom = 0,
    },
