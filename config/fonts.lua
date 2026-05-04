@@ -1,5 +1,5 @@
 local wezterm = require('wezterm')
-local font_size = 16
+local font_size = 14
 
 return {
    font = wezterm.font_with_fallback({
